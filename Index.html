@@ -138,7 +138,7 @@ footer{background:var(--dark);color:var(--light);text-align:center;padding:1.5re
 <footer>© 2026 Szasz's Sourdough Rolls · Made with love & cinnamon</footer>
 
 <script>
-emailjs.init("r6XgEloOaq5Awfse9");
+try { emailjs.init("r6XgEloOaq5Awfse9"); } catch(e) {}
 
 var products = [
   {id:1, name:"Classic Cinnamon Rolls", desc:"A box of 6 classic cinnamon rolls with brown sugar filling and cream cheese frosting.", price:20.00},
