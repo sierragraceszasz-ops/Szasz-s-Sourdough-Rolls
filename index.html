@@ -259,9 +259,35 @@ function placeOrder(){
   const total = cart.reduce((s,i)=>s+i.price*i.qty, 0);
   const params = {
     name: f('fname')+' '+f('lname'),
-    email: f('email') || f('phone'),
+    from_name: f('fname')+' '+f('lname'),
+    email: f('email'),
+    from_email: f('email'),
+    phone: f('phone'),
+    order: orderList,
     message: orderList,
-    total: '$'+total.toFixed(2),
+    total: '
+  emailjs.send("service_hlskoah", "template_kr33y0v", params)
+    .then(()=>{
+      document.getElementById('checkoutForm').style.display='none';
+      document.getElementById('successMsg').style.display='block';
+    })
+    .catch(err=>{
+      console.error(err);
+      alert('Something went wrong sending your order. Please try again.');
+    });
+}
+
+function resetCart(){
+  cart=[];
+  updateCart();
+  document.getElementById('checkoutForm').querySelectorAll('input').forEach(el=>el.value='');
+}
+
+renderProducts();
+</script>
+</body>
+</html>
++total.toFixed(2),
     time: new Date().toLocaleString(),
   };
   emailjs.send("service_hlskoah", "template_kr33y0v", params)
