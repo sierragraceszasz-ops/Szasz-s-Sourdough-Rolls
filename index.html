@@ -173,12 +173,15 @@ footer{background:var(--dark);color:var(--light);text-align:center;padding:1.5re
 // Load EmailJS
 const ejsScript = document.createElement('script');
 ejsScript.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-ejsScript.onload = () => emailjs.init("r6XgEloOaq5Awfse9");
+ejsScript.onload = () => {
+  emailjs.init("r6XgEloOaq5Awfse9");
+  console.log("EmailJS initialized");
+};
 document.head.appendChild(ejsScript);
 
 const products = [
   {id:1, emoji:"", name:"Classic Cinnamon Rolls", desc:"A box of 6 classic cinnamon rolls with brown sugar filling and cream cheese frosting.", price:20.00},
-  {id:2, emoji:"", name:"Maple Pecan Rolls", desc:"A box of 6 maple pecan rolls baked to perfection.", price:20.00},
+  {id:2, emoji:"", name:"Caramel Pecan Rolls", desc:"A box of 6 caramel pecan rolls baked to perfection.", price:20.00},
 ];
 
 let cart = [];
