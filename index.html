@@ -258,10 +258,11 @@ function placeOrder(){
   if(!email&&!phone){document.getElementById('contactError').style.display='block';return;}
   var orderList='';
   var total=0;
-  for(var i=0;i<cart.length;i++){
+ 
+ var pickupDay=document.getElementById('pickupDay').value;
+var pickupTime=document.getElementById('pickupTime').value; 
 
-    var pickupDay=document.getElementById('pickupDay').value;
-var pickupTime=document.getElementById('pickupTime').value;
+  for(var i=0;i<cart.length;i++){
 
 var params={
   name: fname+' '+lname,
